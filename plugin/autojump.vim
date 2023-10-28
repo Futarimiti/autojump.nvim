@@ -1,16 +1,11 @@
-" autojump.vim - Easy file navigation
-" Maintainer: Trotter Cashion <cashion@gmail.com>
-" Version:    0.3.2
-
-" Install in ~/.vim/autoload
-
+" vim: shiftwidth=2 softtabstop=2 expandtab
 if exists("g:loaded_autojump") || &cp
   finish
 endif
 let g:loaded_autojump = 1
 
-let has_autojump=system("which autojump")
-if has_autojump == ""
+let has_autojump=executable('autojump')
+if !has_autojump
   echo "It seems you're missing autojump (https://github.com/joelthelion/autojump)"
   echo "autojump.vim won't work without it"
   echo "Sad Panda"
@@ -18,7 +13,7 @@ if has_autojump == ""
 end
 
 " The root directory in which we will store all autojump files
-let s:data_dir=expand("~/.autojump.vim")
+let s:data_dir=stdpath('data')
 let s:global_dir=expand(s:data_dir.'/global')
 let s:project_dir=expand(s:data_dir.'/projects/'.getcwd())
 
