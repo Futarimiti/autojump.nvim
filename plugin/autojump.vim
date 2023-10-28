@@ -13,7 +13,7 @@ if !has_autojump
 end
 
 " The root directory in which we will store all autojump files
-let s:data_dir=expand("~/.autojump.vim")
+let s:data_dir=stdpath('data').'/autojump'
 let s:global_dir=expand(s:data_dir.'/global')
 let s:project_dir=expand(s:data_dir.'/projects/'.getcwd())
 
